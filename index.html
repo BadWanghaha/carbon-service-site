@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳足迹_碳排放_碳核算_碳核查_LCA生命周期评估服务_SimaPro/GaBi/OpenLCA</title>
+    <meta name="description" content="提供碳足迹、碳排放、碳核算、碳核查、生命周期评估（LCA）服务，支持SimaPro、GaBi、OpenLCA建模分析，覆盖产品碳足迹、组织碳排放核算、LCA报告编制、EPD支持与碳管理咨询。">
+    <meta name="keywords" content="碳足迹,碳排放,碳核算,碳核查,LCA,生命周期评估,产品碳足迹,组织碳排放,温室气体核算,碳管理,SimaPro,GaBi,OpenLCA,EPD">
+    <meta name="author" content="LCA分析服务">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#2e8b57">
+    <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="碳足迹/碳排放/碳核算/碳核查/LCA生命周期评估服务">
+    <meta property="og:description" content="专业提供碳足迹、碳排放、碳核算、碳核查与LCA生命周期评估服务，支持SimaPro、GaBi、OpenLCA。">
+    <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/">
+    <meta property="og:image" content="https://picui.ogmua.cn/s1/2026/03/11/69b0dc03d5f24.webp">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="碳足迹/碳排放/碳核算/碳核查/LCA生命周期评估服务">
+    <meta name="twitter:description" content="产品碳足迹、组织碳排放、LCA建模分析、报告编制与咨询服务。">
+    <meta name="twitter:image" content="https://picui.ogmua.cn/s1/2026/03/11/69b0dc03d5f24.webp">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "LCA分析服务",
+      "serviceType": [
+        "碳足迹评估",
+        "碳排放核算",
+        "碳核算咨询",
+        "碳核查支持",
+        "生命周期评估（LCA）"
+      ],
+      "description": "提供碳足迹、碳排放、碳核算、碳核查与LCA生命周期评估服务，支持SimaPro、GaBi、OpenLCA。",
+      "areaServed": "CN",
+      "availableLanguage": ["zh-CN"],
+      "url": "https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/",
+      "image": "https://picui.ogmua.cn/s1/2026/03/11/69b0dc03d5f24.webp",
+      "sameAs": [
+        "https://m.tb.cn/h.ieCp7Iy?tk=VHs9UE6lzNz"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "可以做哪些碳管理相关服务？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可提供碳足迹、碳排放、碳核算、碳核查支持、生命周期评估（LCA）、环境影响分析、EPD支持及相关报告编制服务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些LCA软件工具？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持SimaPro、GaBi、OpenLCA等主流LCA建模与分析工具。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "适用于哪些应用场景？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "适用于产品碳足迹核算、组织温室气体核算、供应链碳排放分析、生命周期评价、低碳管理与绿色认证支撑等场景。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f0f8f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #90ee90;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2e8b57 0%, #3cb371 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero .hero-badge {
+            display: inline-block;
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.25);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.18rem;
+            max-width: 860px;
+            margin: 0 auto;
+            opacity: 0.96;
+        }
+
+        .hero-keywords {
+            margin-top: 1.6rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .hero-keywords span {
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.22);
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            font-size: 0.98rem;
+        }
+
+        .intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 1rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .intro h2 {
+            color: #2e8b57;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            color: #555;
+            font-size: 1.06rem;
+            line-height: 1.9;
+        }
+
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .services-title {
+            text-align: center;
+            color: #2e8b57;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-desc {
+            text-align: center;
+            color: #666;
+            font-size: 1.02rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3.card-title {
+            color: #2e8b57;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .logo-container {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 15px;
+            box-shadow: none;
+            border: none;
+        }
+
+        .logo-img {
+            max-width: 180px;
+            max-height: 90px;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .service-card h4 {
+            color: #555;
+            font-size: 1.22rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: #666;
+            line-height: 1.85;
+        }
+
+        .service-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card ul li::before {
+            content: "✓ ";
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        .keywords-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .keywords-box {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fcf9 100%);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .keywords-box h2 {
+            color: #2e8b57;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .keywords-box p {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .keyword-tags span {
+            background: #e8f5e9;
+            color: #1f6b41;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            border: 1px solid #d5ebd9;
+        }
+
+        .advantages {
+            background-color: #e8f5e9;
+            padding: 5rem 2rem;
+        }
+
+        .advantages-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .advantages h2 {
+            text-align: center;
+            color: #2e8b57;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .advantage-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .advantage-item h3 {
+            color: #2e8b57;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-item p {
+            color: #666;
+            line-height: 1.75;
+        }
+
+        .faq {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq h2 {
+            text-align: center;
+            color: #2e8b57;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            padding: 1.4rem 1.6rem;
+        }
+
+        .faq-item h3 {
+            color: #2f7f52;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact {
+            background-color: #2e8b57;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact p {
+            font-size: 1.12rem;
+            margin-bottom: 1.2rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-subtext {
+            opacity: 0.92;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: white;
+            color: #2e8b57;
+            padding: 1.1rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .contact-btn:hover {
+            background-color: #90ee90;
+            color: #1a522f;
+            transform: scale(1.05);
+        }
+
+        .poster-wrap {
+            max-width: 420px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 1rem;
+            border-radius: 18px;
+            backdrop-filter: blur(2px);
+        }
+
+        .poster-wrap h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.9rem;
+            color: #ffffff;
+        }
+
+        .poster-wrap p {
+            font-size: 0.96rem;
+            margin-top: 0.85rem;
+            margin-bottom: 0;
+            color: rgba(255,255,255,0.92);
+        }
+
+        .poster-img {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+        footer {
+            background-color: #1a522f;
+            color: white;
+            text-align: center;
+            padding: 2rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 1rem;
+                margin-top: 0.4rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .intro,
+            .services,
+            .keywords-section,
+            .faq {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .services-title, .advantages h2, .contact h2, .faq h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card h3.card-title {
+                font-size: 1.55rem;
+                gap: 0.8rem;
+            }
+
+            .logo-container {
+                height: 100px;
+                padding: 10px;
+            }
+
+            .logo-img {
+                max-width: 150px;
+                max-height: 80px;
+            }
+
+            .contact-btn {
+                padding: 1rem 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">LCA分析服务</div>
+            <nav aria-label="主导航">
+                <a href="#services">服务项目</a>
+                <a href="#keywords">关键词覆盖</a>
+                <a href="#advantages">我们优势</a>
+                <a href="#faq">常见问题</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-badge">碳足迹 · 碳排放 · 碳核算 · 碳核查 · LCA生命周期评估</div>
+            <h1>专业碳足迹、碳排放、碳核算与碳核查服务</h1>
+            <p>依托 SimaPro、GaBi、OpenLCA 三大主流工具，提供产品碳足迹、组织碳排放核算、生命周期评估（LCA）、碳核查支持与低碳管理咨询，帮助企业提升绿色竞争力与数据合规能力。</p>
+            <div class="hero-keywords" aria-label="核心关键词">
+                <span>碳足迹</span>
+                <span>碳排放</span>
+                <span>碳核算</span>
+                <span>碳核查</span>
+                <span>LCA</span>
+                <span>生命周期评估</span>
+            </div>
+        </section>
+
+        <section class="intro" aria-labelledby="intro-title">
+            <div class="intro-card">
+                <h2 id="intro-title">面向企业与产品的专业碳管理解决方案</h2>
+                <p>
+                    我们专注于碳足迹、碳排放、碳核算、碳核查与生命周期评估（LCA）相关服务，可为企业提供从前期数据梳理、模型建立、结果分析到报告编制的一站式支持。无论您是需要进行产品碳足迹核算、组织温室气体盘查、供应链碳排放分析，还是需要完成标准化 LCA 研究与认证支撑，都可以获得针对性解决方案。
+                </p>
+            </div>
+        </section>
+
+        <section class="services" id="services" aria-labelledby="services-title">
+            <h2 class="services-title" id="services-title">核心服务内容</h2>
+            <p class="services-desc">覆盖碳足迹、碳排放核算、碳核查支持与 LCA 生命周期评估，支持主流建模软件与多行业应用场景。</p>
+            <div class="service-grid">
+                <article class="service-card">
+                    <h3 class="card-title">
+                        <div class="logo-container">
+                            <img src="https://picui.ogmua.cn/s1/2026/03/06/69aa4c707ec05.webp" alt="SimaPro 碳足迹与LCA分析服务标识" class="logo-img" loading="lazy">
+                        </div>
+                        SimaPro 代做 / 指导
+                    </h3>
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li>产品碳足迹与企业碳排放全维度分析</li>
+                        <li>全生命周期评估（LCA）报告编制</li>
+                        <li>环境产品声明（EPD）认证支持</li>
+                    </ul>
+                    <h4>专业分析模块</h4>
+                    <ul>
+                        <li>清单分析与数据校验</li>
+                        <li>过程贡献与热点分析</li>
+                        <li>特征化 / 归一化分析</li>
+                        <li>敏感性与不确定性分析</li>
+                    </ul>
+                </article>
+
+                <article class="service-card">
+                    <h3 class="card-title">
+                        <div class="logo-container">
+                            <img src="https://picui.ogmua.cn/s1/2026/03/06/69aa4c719264e.webp" alt="GaBi 碳核算与碳核查服务标识" class="logo-img" loading="lazy">
+                        </div>
+                        GaBi 代做 / 指导
+                    </h3>
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li>精准碳足迹核算与碳排放分析</li>
+                        <li>生命周期评估（LCA）全流程实施</li>
+                        <li>行业定制化分析方案设计</li>
+                    </ul>
+                    <h4>服务特色</h4>
+                    <ul>
+                        <li>基于数据库的精准建模</li>
+                        <li>符合 ISO 14040 / 14044 标准要求</li>
+                        <li>可视化分析结果呈现</li>
+                    </ul>
+                </article>
+
+                <article class="service-card">
+                    <h3 class="card-title">
+                        <div class="logo-container">
+                            <img src="https://picui.ogmua.cn/s1/2026/03/06/69aa4c7279b2f.webp" alt="OpenLCA 碳排放与生命周期评估服务标识" class="logo-img" loading="lazy">
+                        </div>
+                        OpenLCA 代做 / 指导
+                    </h3>
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li>开源 LCA 工具建模与分析</li>
+                        <li>碳足迹与环境影响评估</li>
+                        <li>数据导入与报告生成</li>
+                    </ul>
+                    <h4>服务优势</h4>
+                    <ul>
+                        <li>低成本高效解决方案</li>
+                        <li>灵活的定制化建模</li>
+                        <li>开源数据库适配与扩展</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="keywords-section" id="keywords" aria-labelledby="keywords-title">
+            <div class="keywords-box">
+                <h2 id="keywords-title">碳足迹 / 碳排放 / 碳核算 / 碳核查 关键词服务覆盖</h2>
+                <p>
+                    本页面围绕“碳足迹”“碳排放”“碳核算”“碳核查”等核心搜索词进行了页面标题、描述标签、结构化数据、语义化标题与正文内容布局优化，可更好地帮助搜索引擎理解页面主题。服务内容同时覆盖产品碳足迹、组织碳排放核算、温室气体盘查、LCA 生命周期评估、环境影响分析及相关咨询支持。
+                </p>
+                <p>
+                    若您正在寻找碳足迹咨询、碳排放核算、碳核查协助、LCA 建模代做、SimaPro 建模、GaBi 分析、OpenLCA 指导等服务，本页面均可作为对应服务入口。
+                </p>
+                <div class="keyword-tags" aria-label="SEO关键词标签">
+                    <span>产品碳足迹</span>
+                    <span>组织碳排放</span>
+                    <span>温室气体核算</span>
+                    <span>碳盘查</span>
+                    <span>碳核查支持</span>
+                    <span>LCA建模</span>
+                    <span>SimaPro</span>
+                    <span>GaBi</span>
+                    <span>OpenLCA</span>
+                    <span>EPD支持</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages" id="advantages" aria-labelledby="advantages-title">
+            <div class="advantages-container">
+                <h2 id="advantages-title">为什么选择我们的碳管理与LCA服务</h2>
+                <div class="advantage-items">
+                    <article class="advantage-item">
+                        <h3>全工具覆盖</h3>
+                        <p>精通 SimaPro、GaBi、OpenLCA 三大主流 LCA 分析软件，可根据您的需求选择适配的碳足迹与生命周期评估方案。</p>
+                    </article>
+                    <article class="advantage-item">
+                        <h3>全流程服务</h3>
+                        <p>从需求梳理、数据收集、模型搭建到报告撰写，提供一站式碳核算、碳排放分析与 LCA 解决方案。</p>
+                    </article>
+                    <article class="advantage-item">
+                        <h3>专业经验丰富</h3>
+                        <p>深耕碳足迹与生命周期评估领域，服务覆盖制造、建筑、能源等多个行业，具备丰富项目经验。</p>
+                    </article>
+                    <article class="advantage-item">
+                        <h3>定制化方案</h3>
+                        <p>结合企业实际场景与行业特点，量身打造个性化碳核算、碳核查支持与环境影响评估方案。</p>
+                    </article>
+                    <article class="advantage-item">
+                        <h3>高效交付</h3>
+                        <p>标准化服务流程，严格把控交付时间，确保在约定周期内完成高质量的碳足迹与 LCA 分析成果。</p>
+                    </article>
+                    <article class="advantage-item">
+                        <h3>合规性保障</h3>
+                        <p>分析流程与报告遵循 ISO 14040 / 14044 等标准要求，为企业碳管理与绿色认证提供可靠支撑。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">常见问题</h2>
+            <div class="faq-list">
+                <article class="faq-item">
+                    <h3>你们可以做哪些服务？</h3>
+                    <p>可提供碳足迹、碳排放、碳核算、碳核查支持、LCA 生命周期评估、环境影响分析、报告编制及相关咨询服务。</p>
+                </article>
+                <article class="faq-item">
+                    <h3>支持哪些软件工具？</h3>
+                    <p>支持 SimaPro、GaBi、OpenLCA 等主流 LCA 与碳管理相关分析工具，可根据项目需求灵活选择。</p>
+                </article>
+                <article class="faq-item">
+                    <h3>适合哪些客户咨询？</h3>
+                    <p>适合需要进行产品碳足迹核算、组织碳排放盘查、供应链碳数据分析、认证申报支撑及绿色低碳项目咨询的企业或个人。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">立即咨询，开启绿色低碳发展之路</h2>
+            <p>闲鱼号：孤稚欢欢｜专业提供碳足迹、碳排放、碳核算、碳核查与 LCA 生命周期评估服务</p>
+            <div class="contact-subtext">点击下方按钮可直接前往闲鱼咨询，海报展示位已预留并接入图床图片。</div>
+            <a href="https://m.tb.cn/h.ieCp7Iy?tk=VHs9UE6lzNz" class="contact-btn" target="_blank" rel="noopener noreferrer">前往闲鱼咨询</a>
+
+            <div class="poster-wrap" aria-label="闲鱼分享海报展示">
+                <h3>闲鱼分享海报</h3>
+                <img
+                    src="https://picui.ogmua.cn/s1/2026/03/11/69b0dc03d5f24.webp"
+                    alt="闲鱼咨询分享海报，展示碳足迹、碳排放、碳核算、碳核查与LCA服务信息"
+                    class="poster-img"
+                    loading="lazy">
+                <p>可引导用户长按保存或截图识别，提升咨询转化效率。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LCA分析服务｜碳足迹｜碳排放｜碳核算｜碳核查｜生命周期评估（LCA）｜助力企业绿色低碳发展</p>
+    </footer>
+</body>
+</html>
